@@ -1,0 +1,561 @@
+{
+ "tile_size": 64,
+ "cols": 32,
+ "rows": 11,
+ "ground_y": 512,
+ "tiles": [
+  {
+   "x": 0,
+   "y": 8,
+   "tile": "grass_top_left"
+  },
+  {
+   "x": 0,
+   "y": 9,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 0,
+   "y": 10,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 1,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 1,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 1,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 2,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 2,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 2,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 3,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 3,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 4,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 4,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 4,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "tile": "grass_top_right"
+  },
+  {
+   "x": 5,
+   "y": 9,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 5,
+   "y": 10,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 7,
+   "y": 8,
+   "tile": "grass_top_left"
+  },
+  {
+   "x": 7,
+   "y": 9,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 7,
+   "y": 10,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 8,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 8,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 8,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 9,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 9,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 9,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 10,
+   "y": 8,
+   "tile": "grass_top_right"
+  },
+  {
+   "x": 10,
+   "y": 9,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 10,
+   "y": 10,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 13,
+   "y": 8,
+   "tile": "grass_top_left"
+  },
+  {
+   "x": 13,
+   "y": 9,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 13,
+   "y": 10,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 14,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 14,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 14,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 15,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 15,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 15,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 16,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 16,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 16,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 17,
+   "y": 8,
+   "tile": "grass_top_right"
+  },
+  {
+   "x": 17,
+   "y": 9,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 17,
+   "y": 10,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 21,
+   "y": 8,
+   "tile": "grass_top_left"
+  },
+  {
+   "x": 21,
+   "y": 9,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 21,
+   "y": 10,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 22,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 22,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 22,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 23,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 23,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 23,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 24,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 24,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 24,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 25,
+   "y": 8,
+   "tile": "grass_top_right"
+  },
+  {
+   "x": 25,
+   "y": 9,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 25,
+   "y": 10,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 28,
+   "y": 8,
+   "tile": "grass_top_left"
+  },
+  {
+   "x": 28,
+   "y": 9,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 28,
+   "y": 10,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 29,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 29,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 29,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 30,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 30,
+   "y": 9,
+   "tile": "dirt"
+  },
+  {
+   "x": 30,
+   "y": 10,
+   "tile": "dirt"
+  },
+  {
+   "x": 31,
+   "y": 8,
+   "tile": "grass_top_right"
+  },
+  {
+   "x": 31,
+   "y": 9,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 31,
+   "y": 10,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 9,
+   "y": 6,
+   "tile": "grass_top_left"
+  },
+  {
+   "x": 9,
+   "y": 7,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 10,
+   "y": 6,
+   "tile": "grass_top_right"
+  },
+  {
+   "x": 10,
+   "y": 7,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 23,
+   "y": 6,
+   "tile": "grass_top_left"
+  },
+  {
+   "x": 23,
+   "y": 7,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 24,
+   "y": 6,
+   "tile": "grass_top_right"
+  },
+  {
+   "x": 24,
+   "y": 7,
+   "tile": "dirt_right"
+  },
+  {
+   "x": 19,
+   "y": 8,
+   "tile": "grass_top"
+  },
+  {
+   "x": 19,
+   "y": 9,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 19,
+   "y": 10,
+   "tile": "dirt_left"
+  },
+  {
+   "x": 0,
+   "y": 4,
+   "tile": "dirt"
+  },
+  {
+   "x": 31,
+   "y": 4,
+   "tile": "dirt"
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "tile": "dirt"
+  },
+  {
+   "x": 31,
+   "y": 5,
+   "tile": "dirt"
+  },
+  {
+   "x": 0,
+   "y": 6,
+   "tile": "dirt"
+  },
+  {
+   "x": 31,
+   "y": 6,
+   "tile": "dirt"
+  },
+  {
+   "x": 0,
+   "y": 7,
+   "tile": "dirt"
+  },
+  {
+   "x": 31,
+   "y": 7,
+   "tile": "dirt"
+  }
+ ],
+ "decor": [
+  {
+   "texture": "obj_tree",
+   "x": 224,
+   "y": 512
+  },
+  {
+   "texture": "obj_bush",
+   "x": 288,
+   "y": 512
+  },
+  {
+   "texture": "obj_tree_2",
+   "x": 1056,
+   "y": 512
+  },
+  {
+   "texture": "obj_stump",
+   "x": 928,
+   "y": 512
+  },
+  {
+   "texture": "obj_bush_small",
+   "x": 1120,
+   "y": 512
+  },
+  {
+   "texture": "obj_tree",
+   "x": 1440,
+   "y": 512
+  },
+  {
+   "texture": "obj_bush",
+   "x": 1632,
+   "y": 512
+  },
+  {
+   "texture": "obj_sign",
+   "x": 1952,
+   "y": 512
+  },
+  {
+   "texture": "obj_tree_2",
+   "x": 1888,
+   "y": 512
+  }
+ ],
+ "collectibles": [
+  {
+   "kind": "shroom",
+   "x": 608,
+   "y": 362
+  },
+  {
+   "kind": "shroom_2",
+   "x": 672,
+   "y": 362
+  },
+  {
+   "kind": "crate",
+   "x": 1504,
+   "y": 358
+  },
+  {
+   "kind": "shroom",
+   "x": 1568,
+   "y": 362
+  },
+  {
+   "kind": "shroom_2",
+   "x": 1248,
+   "y": 490
+  },
+  {
+   "kind": "crate",
+   "x": 992,
+   "y": 490
+  },
+  {
+   "kind": "shroom",
+   "x": 1952,
+   "y": 490
+  }
+ ],
+ "enemy": {
+  "x": 900,
+  "y": 512,
+  "left": 860,
+  "right": 1120
+ },
+ "player_start": {
+  "x": 110,
+  "y": 422
+ },
+ "camera": {
+  "min_x": 500,
+  "max_x": 1500
+ }
+}

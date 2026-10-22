@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://collectible.gd" id="1_dcuk0"]
+[ext_resource type="Texture2D" path="res://assets/shroom.png" id="2_cgs0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2m8x"]
+size = Vector2(38, 38)
+
+[node name="shroom" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_dcuk0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cgs0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f2m8x")
