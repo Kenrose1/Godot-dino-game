@@ -1,3 +1,5 @@
 .godot/
 _downloads/
 *.zip
+.agents/
+/skills-lock.json

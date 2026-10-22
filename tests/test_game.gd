@@ -27,7 +27,7 @@ func _ready() -> void:
 
 
 func _load_main() -> Node:
-	var main: Node = load("res://main.tscn").instantiate()
+	var main: Node = load("res://levels/main.tscn").instantiate()
 	get_tree().root.add_child(main)
 	get_tree().current_scene = main
 	return main
@@ -67,6 +67,16 @@ func _test_assets_and_hud(main: Node) -> void:
 	_check(frames.get_frame_count("default") == 2, "idle animation has 2 frames")
 	_check(frames.get_frame_count("running") == 12, "running animation has 12 frames")
 	_check(frames.get_frame_count("jumping") == 3, "jumping animation has 3 frames")
+	var p: CharacterBody2D = main.get_node("Player")
+	var sprite: AnimatedSprite2D = main.get_node("Player/Sprite2D")
+	p.position = Vector2(110, 512)
+	p.velocity = Vector2.ZERO
+	await _frames(2)
+	sprite.play("default")
+	var idle_frame := sprite.frame
+	await _frames(20)
+	_check(sprite.animation == "default" and sprite.frame != idle_frame,
+		"idle animation advances frames")
 	var crate: Sprite2D = main.get_node("Collectibles/shroom2/Sprite2D")
 	_check(crate.texture != null and crate.texture.get_size() == Vector2(77, 77),
 		"each collectible shows its own art (crate is 77x77)")

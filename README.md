@@ -20,36 +20,38 @@ the stone golem. Falling into a pit or touching the golem reloads the level.
 
 ## Scene layout
 
-`main.tscn`
+`levels/main.tscn`
 
 ```
 Root (Node2D)
 ├── Background   TextureRect, 2048x750, stretched, scrolling backdrop
 ├── TileMap      level painted from 64px tiles (blank+grass, dirt, edges)
 ├── Decor        trees, bushes, stump, sign (no collision)
-├── Collectibles shroom0 … shroom6 (StaticBody2D instances of shroom.tscn)
-├── Player       player.tscn instance, started above the first slab
-├── Camera2D     camera.gd, holds the HUD
+├── Collectibles shroom0 … shroom6 (StaticBody2D instances of
+│                entities/collectibles/shroom.tscn)
+├── Player       entities/player/player.tscn instance, started above the first slab
+├── Camera2D     levels/camera.gd, holds the HUD
 │   ├── CollectedLabel   "Collected: n / 7"
 │   └── ResetButton      reloads the scene
-└── Enemy        enemy.tscn instance, patrols the middle slab
+└── Enemy        entities/enemy/enemy.tscn instance, patrols the middle slab
 ```
 
-Other scenes: `player.tscn` (CharacterBody2D + AnimatedSprite2D with the
-`default` / `running` / `jumping` animations + collision shape), `shroom.tscn`
-(collectible), `enemy.tscn` (patroller with a `Hitbox` area).
+Other scenes: `entities/player/player.tscn` (CharacterBody2D + AnimatedSprite2D with the
+`default` / `running` / `jumping` animations + collision shape),
+`entities/collectibles/shroom.tscn`
+(collectible), `entities/enemy/enemy.tscn` (patroller with a `Hitbox` area).
 
 ## Scripts
 
-* **player.gd** — gravity, acceleration/friction, jump, sprite flipping,
+* **entities/player/player.gd** — gravity, acceleration/friction, jump, sprite flipping,
   animation switching, collectible pickup through `move_and_slide()`, and a
   restart if the dino falls below the world.
-* **camera.gd** — follows the player inside a 120px dead zone, both directions,
+* **levels/camera.gd** — follows the player inside a 120px dead zone, both directions,
   clamped to `min_x` 500 / `max_x` 1500; the HUD is parented to it so it moves
   with the view.
-* **enemy.gd** — walks between `left_x` and `right_x`, turns at walls, reloads
+* **entities/enemy/enemy.gd** — walks between `left_x` and `right_x`, turns at walls, reloads
   the level when its `Hitbox` touches the player.
-* **collectible.gd** — applies its exported texture and joins the
+* **entities/collectibles/collectible.gd** — applies its exported texture and joins the
   `collectible` group.
 
 Physics use one "world" tile layer, a "player" layer, a "collectible" layer and
@@ -74,12 +76,12 @@ The art is derived from the original downloads in `_downloads/` (that folder is
 
 ```bash
 python3 tools/build_assets.py      # slices the tileset, keys the dino frames out of the GIF
-python3 tools/build_level.py       # writes level_layout.json + artifacts/level_preview.png
+python3 tools/build_level.py       # writes levels/level_layout.json + artifacts/level_preview.png
 godot --headless --path . --import
-godot --headless --path . --script tools/build_project.gd   # tileset.tres, *.tscn, project settings
+godot --headless --path . --script tools/build_project.gd   # scenes, tileset.tres, project settings
 ```
 
-`level_layout.json` is the single source of truth for the level: the preview
+`levels/level_layout.json` is the single source of truth for the level: the preview
 image and the painted TileMap come from the same cells.
 
 ## Tests

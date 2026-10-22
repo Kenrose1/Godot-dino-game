@@ -20,6 +20,7 @@ var total := 0
 
 func _ready() -> void:
 	total = get_tree().get_nodes_in_group("collectible").size()
+	_set_animation("default")
 	_update_label()
 
 
@@ -42,11 +43,11 @@ func _physics_process(delta: float) -> void:
 	# a reference to the sprite lets us flip it and swap animations
 	sprite_2d.flip_h = velocity.x < 0.0
 	if not is_on_floor():
-		sprite_2d.animation = "jumping"
+		_set_animation("jumping")
 	elif absf(velocity.x) > 12.0:
-		sprite_2d.animation = "running"
+		_set_animation("running")
 	else:
-		sprite_2d.animation = "default"
+		_set_animation("default")
 
 	# collect whatever we bumped into this frame
 	for i in get_slide_collision_count():
@@ -63,3 +64,10 @@ func _physics_process(delta: float) -> void:
 func _update_label() -> void:
 	if collected_label:
 		collected_label.text = "Collected: %d / %d" % [collected, total]
+
+
+func _set_animation(animation_name: String) -> void:
+	if sprite_2d.animation != animation_name:
+		sprite_2d.play(animation_name)
+	elif not sprite_2d.is_playing():
+		sprite_2d.play()

@@ -2,11 +2,10 @@ extends SceneTree
 ## Generates the Godot resources for the platformer lab:
 ##   * project settings (window size, gravity, input map, layer names)
 ##   * assets/tileset.tres   - atlas TileSet with a physics layer
-##   * level.tscn            - the TileMap painted from level_layout.json
-##   * player.tscn           - CharacterBody2D with the animated dino
-##   * shroom.tscn           - collectible pickup
-##   * enemy.tscn            - patrolling enemy
-##   * main.tscn             - background, level, player, camera/HUD, props
+##   * levels/main.tscn      - background, level, player, camera/HUD, props
+##   * entities/player/player.tscn
+##   * entities/collectibles/shroom.tscn
+##   * entities/enemy/enemy.tscn
 ##
 ## Run with:  godot --headless --path . --script tools/build_project.gd
 
@@ -31,7 +30,7 @@ var layout: Dictionary
 
 
 func _initialize() -> void:
-	layout = _read_json("res://level_layout.json")
+	layout = _read_json("res://levels/level_layout.json")
 
 	_setup_project_settings()
 	_build_tileset()
@@ -182,7 +181,7 @@ func _add_frames(frames: SpriteFrames, anim: String, path: String, count: int) -
 func _build_player() -> void:
 	var body := CharacterBody2D.new()
 	body.name = "Player"
-	body.set_script(load("res://player.gd"))
+	body.set_script(load("res://entities/player/player.gd"))
 	body.collision_layer = 2       # player
 	body.collision_mask = 5        # world + collectibles
 	body.floor_snap_length = 4.0
@@ -192,6 +191,7 @@ func _build_player() -> void:
 	sprite.name = "Sprite2D"
 	sprite.sprite_frames = _make_frames()
 	sprite.animation = "default"
+	sprite.autoplay = "default"
 	sprite.scale = Vector2(0.8, 0.8)
 	sprite.offset = Vector2(0, -CELL * 0.8 * 0.5)   # feet on the origin
 	_add(body, sprite)
@@ -204,14 +204,14 @@ func _build_player() -> void:
 	col.position = Vector2(0, -40)
 	_add(body, col)
 
-	_save(body, "res://player.tscn")
+	_save(body, "res://entities/player/player.tscn")
 
 
 # ------------------------------------------------------------ collectibles --
 func _build_collectible() -> void:
 	var body := StaticBody2D.new()
 	body.name = "shroom"
-	body.set_script(load("res://collectible.gd"))
+	body.set_script(load("res://entities/collectibles/collectible.gd"))
 	body.collision_layer = 4      # collectible
 	body.collision_mask = 0
 	body.add_to_group("collectible")
@@ -228,14 +228,14 @@ func _build_collectible() -> void:
 	col.shape = shape
 	_add(body, col)
 
-	_save(body, "res://shroom.tscn")
+	_save(body, "res://entities/collectibles/shroom.tscn")
 
 
 # ------------------------------------------------------------------- enemy --
 func _build_enemy() -> void:
 	var body := CharacterBody2D.new()
 	body.name = "Enemy"
-	body.set_script(load("res://enemy.gd"))
+	body.set_script(load("res://entities/enemy/enemy.gd"))
 	body.collision_layer = 8      # enemy
 	body.collision_mask = 1      # world
 
@@ -277,7 +277,7 @@ func _build_enemy() -> void:
 	_add(hitbox, hcol)
 	_add(body, hitbox)
 
-	_save(body, "res://enemy.tscn")
+	_save(body, "res://entities/enemy/enemy.tscn")
 
 
 # -------------------------------------------------------------------- main --
@@ -319,7 +319,7 @@ func _build_main() -> void:
 	picks.name = "Collectibles"
 	var i := 0
 	for c in layout["collectibles"]:
-		var inst: Node = load("res://shroom.tscn").instantiate()
+		var inst: Node = load("res://entities/collectibles/shroom.tscn").instantiate()
 		inst.name = "shroom%d" % i
 		inst.position = Vector2(c["x"], c["y"])
 		inst.set("item_texture", load("res://assets/%s.png" % c["kind"]))
@@ -328,7 +328,7 @@ func _build_main() -> void:
 	_add(root, picks)
 
 	# c. Player -----------------------------------------------------------
-	var player: Node = load("res://player.tscn").instantiate()
+	var player: Node = load("res://entities/player/player.tscn").instantiate()
 	player.name = "Player"
 	player.position = Vector2(layout["player_start"]["x"], layout["player_start"]["y"])
 	_add(root, player)
@@ -336,7 +336,7 @@ func _build_main() -> void:
 	# h. Camera + HUD -----------------------------------------------------
 	var cam := Camera2D.new()
 	cam.name = "Camera2D"
-	cam.set_script(load("res://camera.gd"))
+	cam.set_script(load("res://levels/camera.gd"))
 	cam.position = Vector2(500, 350)
 	cam.set("min_x", float(layout["camera"]["min_x"]))
 	cam.set("max_x", float(layout["camera"]["max_x"]))
@@ -363,11 +363,11 @@ func _build_main() -> void:
 	_add(cam, button)
 
 	# d. Enemy ------------------------------------------------------------
-	var enemy: Node = load("res://enemy.tscn").instantiate()
+	var enemy: Node = load("res://entities/enemy/enemy.tscn").instantiate()
 	enemy.name = "Enemy"
 	enemy.position = Vector2(layout["enemy"]["x"], layout["enemy"]["y"])
 	enemy.set("left_x", float(layout["enemy"]["left"]))
 	enemy.set("right_x", float(layout["enemy"]["right"]))
 	_add(root, enemy)
 
-	_save(root, "res://main.tscn")
+	_save(root, "res://levels/main.tscn")

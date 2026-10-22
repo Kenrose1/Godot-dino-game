@@ -1,158 +1,130 @@
-[gd_scene load_steps=19 format=3]
+[gd_scene format=3 uid="uid://c8mw6n1tq04ql"]
 
-[ext_resource type="Texture2D" path="res://assets/background.png" id="1_074og"]
+[ext_resource type="Texture2D" uid="uid://bxg80eb4n7eal" path="res://assets/background.png" id="1_074og"]
 [ext_resource type="TileSet" path="res://assets/tileset.tres" id="2_cegan"]
-[ext_resource type="Texture2D" path="res://assets/obj_tree.png" id="3_82xsv"]
-[ext_resource type="Texture2D" path="res://assets/obj_bush.png" id="4_getpj"]
-[ext_resource type="Texture2D" path="res://assets/obj_tree_2.png" id="5_ryguw"]
-[ext_resource type="Texture2D" path="res://assets/obj_stump.png" id="6_d13ii"]
-[ext_resource type="Texture2D" path="res://assets/obj_bush_small.png" id="7_1u8w0"]
-[ext_resource type="Texture2D" path="res://assets/obj_sign.png" id="8_0odxb"]
-[ext_resource type="PackedScene" path="res://shroom.tscn" id="9_lswn8"]
-[ext_resource type="Script" path="res://collectible.gd" id="10_a6jrf"]
-[ext_resource type="Texture2D" path="res://assets/shroom.png" id="11_xuqvo"]
-[ext_resource type="Texture2D" path="res://assets/shroom_2.png" id="12_qsp4k"]
-[ext_resource type="Texture2D" path="res://assets/crate.png" id="13_kq58d"]
-[ext_resource type="PackedScene" path="res://player.tscn" id="14_seu75"]
-[ext_resource type="Script" path="res://player.gd" id="15_htxhm"]
-[ext_resource type="Script" path="res://camera.gd" id="16_jq2sk"]
-[ext_resource type="PackedScene" path="res://enemy.tscn" id="17_4k2k6"]
-[ext_resource type="Script" path="res://enemy.gd" id="18_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://d34avg2tynslg" path="res://assets/obj_tree.png" id="3_82xsv"]
+[ext_resource type="Texture2D" uid="uid://cbxw0n1stcqhe" path="res://assets/obj_bush.png" id="4_getpj"]
+[ext_resource type="Texture2D" uid="uid://c5wr7xduu3qb7" path="res://assets/obj_tree_2.png" id="5_ryguw"]
+[ext_resource type="Texture2D" uid="uid://cw7st1md6yv1g" path="res://assets/obj_stump.png" id="6_d13ii"]
+[ext_resource type="Texture2D" uid="uid://guys22bwyyke" path="res://assets/obj_bush_small.png" id="7_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://dvfs8h22egh4s" path="res://assets/obj_sign.png" id="8_0odxb"]
+[ext_resource type="PackedScene" path="res://entities/collectibles/shroom.tscn" id="9_lswn8"]
+[ext_resource type="Texture2D" uid="uid://cpv3oqyxwxkas" path="res://assets/shroom.png" id="11_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://djfkc8x2soykh" path="res://assets/shroom_2.png" id="12_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://bq70r4vr71l3k" path="res://assets/crate.png" id="13_kq58d"]
+[ext_resource type="PackedScene" path="res://entities/player/player.tscn" id="14_seu75"]
+[ext_resource type="Script" uid="uid://c02tqrlmuoltp" path="res://levels/camera.gd" id="16_jq2sk"]
+[ext_resource type="PackedScene" path="res://entities/enemy/enemy.tscn" id="17_4k2k6"]
 
-[node name="Root" type="Node2D"]
+[node name="Root" type="Node2D" unique_id=1216661706]
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=914354044]
 offset_right = 2048.0
 offset_bottom = 750.0
 mouse_filter = 2
 texture = ExtResource("1_074og")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." unique_id=1007742899]
 tile_set = ExtResource("2_cegan")
 format = 2
 layer_0/tile_data = PackedInt32Array(524288, 0, 0, 589824, 262144, 0, 655360, 262144, 0, 524289, 65536, 0, 589825, 196608, 0, 655361, 196608, 0, 524290, 65536, 0, 589826, 196608, 0, 655362, 196608, 0, 524291, 65536, 0, 589827, 196608, 0, 655363, 196608, 0, 524292, 65536, 0, 589828, 196608, 0, 655364, 196608, 0, 524293, 131072, 0, 589829, 327680, 0, 655365, 327680, 0, 524295, 0, 0, 589831, 262144, 0, 655367, 262144, 0, 524296, 65536, 0, 589832, 196608, 0, 655368, 196608, 0, 524297, 65536, 0, 589833, 196608, 0, 655369, 196608, 0, 524298, 131072, 0, 589834, 327680, 0, 655370, 327680, 0, 524301, 0, 0, 589837, 262144, 0, 655373, 262144, 0, 524302, 65536, 0, 589838, 196608, 0, 655374, 196608, 0, 524303, 65536, 0, 589839, 196608, 0, 655375, 196608, 0, 524304, 65536, 0, 589840, 196608, 0, 655376, 196608, 0, 524305, 131072, 0, 589841, 327680, 0, 655377, 327680, 0, 524309, 0, 0, 589845, 262144, 0, 655381, 262144, 0, 524310, 65536, 0, 589846, 196608, 0, 655382, 196608, 0, 524311, 65536, 0, 589847, 196608, 0, 655383, 196608, 0, 524312, 65536, 0, 589848, 196608, 0, 655384, 196608, 0, 524313, 131072, 0, 589849, 327680, 0, 655385, 327680, 0, 524316, 0, 0, 589852, 262144, 0, 655388, 262144, 0, 524317, 65536, 0, 589853, 196608, 0, 655389, 196608, 0, 524318, 65536, 0, 589854, 196608, 0, 655390, 196608, 0, 524319, 131072, 0, 589855, 327680, 0, 655391, 327680, 0, 393225, 0, 0, 458761, 262144, 0, 393226, 131072, 0, 458762, 327680, 0, 393239, 0, 0, 458775, 262144, 0, 393240, 131072, 0, 458776, 327680, 0, 524307, 65536, 0, 589843, 262144, 0, 655379, 262144, 0, 262144, 196608, 0, 262175, 196608, 0, 327680, 196608, 0, 327711, 196608, 0, 393216, 196608, 0, 393247, 196608, 0, 458752, 196608, 0, 458783, 196608, 0)
 
-[node name="Decor" type="Node2D" parent="."]
+[node name="Decor" type="Node2D" parent="." unique_id=1789269894]
 
-[node name="tree" type="Sprite2D" parent="Decor"]
+[node name="tree" type="Sprite2D" parent="Decor" unique_id=1233379307]
 position = Vector2(153.5, 362)
 texture = ExtResource("3_82xsv")
 centered = false
 
-[node name="bush" type="Sprite2D" parent="Decor"]
+[node name="bush" type="Sprite2D" parent="Decor" unique_id=1217864491]
 position = Vector2(255, 480)
 texture = ExtResource("4_getpj")
 centered = false
 
-[node name="tree_2" type="Sprite2D" parent="Decor"]
+[node name="tree_2" type="Sprite2D" parent="Decor" unique_id=353136224]
 position = Vector2(985.5, 375)
 texture = ExtResource("5_ryguw")
 centered = false
 
-[node name="stump" type="Sprite2D" parent="Decor"]
+[node name="stump" type="Sprite2D" parent="Decor" unique_id=380759702]
 position = Vector2(899, 490)
 texture = ExtResource("6_d13ii")
 centered = false
 
-[node name="bush_small" type="Sprite2D" parent="Decor"]
+[node name="bush_small" type="Sprite2D" parent="Decor" unique_id=362647919]
 position = Vector2(1102, 489)
 texture = ExtResource("7_1u8w0")
 centered = false
 
-[node name="@Sprite2D@3" type="Sprite2D" parent="Decor"]
+[node name="@Sprite2D@3" type="Sprite2D" parent="Decor" unique_id=57496815]
 position = Vector2(1369.5, 362)
 texture = ExtResource("3_82xsv")
 centered = false
 
-[node name="@Sprite2D@4" type="Sprite2D" parent="Decor"]
+[node name="@Sprite2D@4" type="Sprite2D" parent="Decor" unique_id=95573503]
 position = Vector2(1599, 480)
 texture = ExtResource("4_getpj")
 centered = false
 
-[node name="sign" type="Sprite2D" parent="Decor"]
+[node name="sign" type="Sprite2D" parent="Decor" unique_id=445887853]
 position = Vector2(1936.5, 480)
 texture = ExtResource("8_0odxb")
 centered = false
 
-[node name="@Sprite2D@5" type="Sprite2D" parent="Decor"]
+[node name="@Sprite2D@5" type="Sprite2D" parent="Decor" unique_id=828049551]
 position = Vector2(1817.5, 375)
 texture = ExtResource("5_ryguw")
 centered = false
 
-[node name="Collectibles" type="Node2D" parent="."]
+[node name="Collectibles" type="Node2D" parent="." unique_id=1674770517]
 
-[node name="shroom0" type="StaticBody2D" parent="Collectibles" instance=ExtResource("9_lswn8")]
+[node name="shroom0" parent="Collectibles" unique_id=552855024 instance=ExtResource("9_lswn8")]
 position = Vector2(608, 362)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("10_a6jrf")
 item_texture = ExtResource("11_xuqvo")
 
-[node name="shroom1" type="StaticBody2D" parent="Collectibles" instance=ExtResource("9_lswn8")]
+[node name="shroom1" parent="Collectibles" unique_id=788385986 instance=ExtResource("9_lswn8")]
 position = Vector2(672, 362)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("10_a6jrf")
 item_texture = ExtResource("12_qsp4k")
 
-[node name="shroom2" type="StaticBody2D" parent="Collectibles" instance=ExtResource("9_lswn8")]
+[node name="shroom2" parent="Collectibles" unique_id=1965385576 instance=ExtResource("9_lswn8")]
 position = Vector2(1504, 358)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("10_a6jrf")
 item_texture = ExtResource("13_kq58d")
 
-[node name="shroom3" type="StaticBody2D" parent="Collectibles" instance=ExtResource("9_lswn8")]
+[node name="shroom3" parent="Collectibles" unique_id=223497905 instance=ExtResource("9_lswn8")]
 position = Vector2(1568, 362)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("10_a6jrf")
 item_texture = ExtResource("11_xuqvo")
 
-[node name="shroom4" type="StaticBody2D" parent="Collectibles" instance=ExtResource("9_lswn8")]
+[node name="shroom4" parent="Collectibles" unique_id=1643646112 instance=ExtResource("9_lswn8")]
 position = Vector2(1248, 490)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("10_a6jrf")
 item_texture = ExtResource("12_qsp4k")
 
-[node name="shroom5" type="StaticBody2D" parent="Collectibles" instance=ExtResource("9_lswn8")]
+[node name="shroom5" parent="Collectibles" unique_id=1452104244 instance=ExtResource("9_lswn8")]
 position = Vector2(992, 490)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("10_a6jrf")
 item_texture = ExtResource("13_kq58d")
 
-[node name="shroom6" type="StaticBody2D" parent="Collectibles" instance=ExtResource("9_lswn8")]
+[node name="shroom6" parent="Collectibles" unique_id=984545883 instance=ExtResource("9_lswn8")]
 position = Vector2(1952, 490)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("10_a6jrf")
 item_texture = ExtResource("11_xuqvo")
 
-[node name="Player" type="CharacterBody2D" parent="." instance=ExtResource("14_seu75")]
+[node name="Player" parent="." unique_id=645181784 instance=ExtResource("14_seu75")]
 position = Vector2(110, 422)
-collision_layer = 2
-collision_mask = 5
-floor_snap_length = 4.0
-script = ExtResource("15_htxhm")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=179340148]
 position = Vector2(500, 350)
 script = ExtResource("16_jq2sk")
 
-[node name="CollectedLabel" type="Label" parent="Camera2D"]
-offset_left = 26.0
-offset_top = 18.0
-offset_right = 26.0
-offset_bottom = 18.0
-theme_override_font_sizes/font_size = 28
+[node name="CollectedLabel" type="Label" parent="Camera2D" unique_id=595055449]
+offset_left = -490.0
+offset_top = -334.0
+offset_right = -293.0
+offset_bottom = -295.0
 theme_override_colors/font_color = Color(0.11, 0.1, 0.13, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
 theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 28
 text = "Collected: 0 / 7"
 
-[node name="ResetButton" type="Button" parent="Camera2D"]
+[node name="ResetButton" type="Button" parent="Camera2D" unique_id=668445159]
 offset_left = 858.0
 offset_top = 16.0
 offset_right = 974.0
@@ -160,10 +132,8 @@ offset_bottom = 62.0
 theme_override_font_sizes/font_size = 22
 text = "Reset"
 
-[node name="Enemy" type="CharacterBody2D" parent="." instance=ExtResource("17_4k2k6")]
+[node name="Enemy" parent="." unique_id=544599359 instance=ExtResource("17_4k2k6")]
 position = Vector2(900, 512)
-collision_layer = 8
-script = ExtResource("18_0rl1p")
 left_x = 860.0
 right_x = 1120.0
 

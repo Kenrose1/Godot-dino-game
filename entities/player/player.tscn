@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3]
 
-[ext_resource type="Script" path="res://player.gd" id="1_hqtel"]
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_hqtel"]
 [ext_resource type="Texture2D" path="res://assets/dino_idle.png" id="2_sweqy"]
 [ext_resource type="Texture2D" path="res://assets/dino_jump.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" path="res://assets/dino_run.png" id="4_1jxqw"]
@@ -154,6 +154,7 @@ script = ExtResource("1_hqtel")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_jm5j8")
+autoplay = "default"
 offset = Vector2(0, -51.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

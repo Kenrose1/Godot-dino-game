@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Layout for the platformer level.
 
-This file is the single source of truth: it writes level_layout.json, which
+This file is the single source of truth: it writes levels/level_layout.json, which
 tools/build_level.gd paints into the TileMap, and renders a preview of exactly
 the same cells into artifacts/level_preview.png.
 """
@@ -135,9 +135,9 @@ layout = {
     "camera": {"min_x": 500, "max_x": 1500},
 }
 
-with open(os.path.join(ROOT, "level_layout.json"), "w") as f:
+with open(os.path.join(ROOT, "levels", "level_layout.json"), "w") as f:
     json.dump(layout, f, indent=1)
-print(f"level_layout.json: {len(tiles)} tiles, {len(collectibles)} collectibles")
+print(f"levels/level_layout.json: {len(tiles)} tiles, {len(collectibles)} collectibles")
 
 # ---------------------------------------------------------------- preview ----
 ASSETS = os.path.join(ROOT, "assets")
